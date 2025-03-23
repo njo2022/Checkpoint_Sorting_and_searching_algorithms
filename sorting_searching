@@ -1,0 +1,33 @@
+// Fonction pour trier un tableau en utilisant l'algorithme de tri par insertion.
+// Exemple : triInsertion([5, 3, 1, 4, 2]) retourne [1, 2, 3, 4, 5].
+function triInsertion(arr) {
+  // parcourt le tableau à partir du deuxième élément (indice 1).
+  // Le premier élément est considéré comme déjà trié.
+  for (let i = 1; i < arr.length; i++) {
+    // stockage l'élément courant dans une variable 'cle'.
+    let cle = arr[i];
+
+    // 3. initialisation 'j' à l'indice de l'élément précédent.
+    let j = i - 1;
+
+    // comparer 'cle' avec les éléments précédents, en déplaçant les éléments plus grands vers la droite.
+    // La boucle continue tant que 'j' est positif et que l'élément arr[j] est plus grand que 'cle'.
+    while (j >= 0 && arr[j] > cle) {
+      // déplacer l'élément arr[j] vers la droite (arr[j + 1]).
+      arr[j + 1] = arr[j];
+
+      // décrémenter 'j' pour passer à l'élément précédent.
+      j--;
+    }
+
+    // insèrer 'cle' à sa position correcte dans la partie triée du tableau.
+    arr[j + 1] = cle;
+  }
+
+  // retourner le tableau trié.
+  return arr;
+}
+
+// test tri
+triInsertion([5, 3, 1, 4, 2]);
+
